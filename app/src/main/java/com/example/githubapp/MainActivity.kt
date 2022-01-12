@@ -61,14 +61,16 @@ class MainActivity() : AppCompatActivity() {
       var itemview = item.itemId
         when(itemview){
             R.id.add_icon->{
+
+                setfragment(RepoDetailFragment())
+            }
+            R.id.clearallrepo->{
                 val sharedPreferences: SharedPreferences = this.getSharedPreferences(PREFS_FILE_AUTH,
                     Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 editor.clear()
                 editor.commit()
-                setfragment(RepoDetailFragment())
-            }
-            R.id.clearallrepo->model.onClear()
+                model.onClear()}
         }
         return false
     }
